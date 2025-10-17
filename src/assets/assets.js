@@ -58,7 +58,7 @@ export const songs = [
         id:0,
         name:"Song 1",
         artist:"Artist 1",
-        url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        song:"7 years.mp3",
         mood:"Happy"
     },
     {
