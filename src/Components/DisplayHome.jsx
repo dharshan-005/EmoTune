@@ -1,9 +1,24 @@
-import React from 'react'
-import NavBar from './NavBar'
 import { emotions, songs } from '../assets/assets'
+import React, { useEffect, useState } from 'react'
+import NavBar from './NavBar'
 import AlbumItem from './AlbumItem'
+import axios from 'axios'
 
 const DisplayHome = () => {
+
+    const [emotions, setEmotions] = useState([])
+    const [songs, setSongs] = useState([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+        const emotionsResponse = await axios.get('http://localhost:5000/api/emotions');
+        setEmotions(emotionsResponse.data);
+        const songsResponse = await axios.get('http://localhost:5000/api/songs');
+        setSongs(songsResponse.data);
+        };
+        fetchData();
+    }, []);
+
   return (
     <>
     <NavBar />
